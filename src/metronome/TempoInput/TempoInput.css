@@ -1,0 +1,69 @@
+.tempo-input {
+  display: flex;
+  background-color: #e67e22;
+  width: 100%;
+}
+
+.bpm-input {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 86px;
+}
+
+.bpm-input input {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.bpm-input label {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.tempo-controls {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 3px;
+}
+
+.tempo-controls * {
+  height: 43px;
+  width: 43px;
+}
+
+.tempo-controls button {
+  height: 43px;
+  width: 43px;
+}
+
+/* #Carrot Flat Button
+==================================================*/
+.carrot-flat-button {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #e67e22;
+  border: 0;
+  /* border-bottom: 2px solid #da751c; */
+  cursor: pointer;
+  /* -webkit-box-shadow: inset 0 -2px #da751c; */
+  /* box-shadow: inset 0 -2px #da751c; */
+}
+.carrot-flat-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
