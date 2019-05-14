@@ -28,8 +28,6 @@
 .tempo-controls {
   display: flex;
   flex-direction: column;
-
-  margin-left: 3px;
 }
 
 .tempo-controls * {

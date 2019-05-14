@@ -8,9 +8,6 @@ class App extends Component<{a: string}> {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Metronoapp</h1>
-        </header>
         <Metronome defaultBpm={100}/>
       </div>
     );
