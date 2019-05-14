@@ -1,9 +1,11 @@
-// @flow
+import { MouseEvent as ReactMouseEvent, SyntheticEvent } from 'react';
 
-export default function getRepeatedMouseDownHandler(initialInterval: number, repeatedInterval: number, handler: (MouseEvent) => void) {
+type MyMouseEvent = ReactMouseEvent<HTMLButtonElement, MouseEvent>;
+
+export default function getRepeatedMouseDownHandler<T extends SyntheticEvent>(initialInterval: number, repeatedInterval: number, handler: (_: T) => void) {
   let handleMouseUp = getHandleMouseUp(() => {});
 
-  return (event: MouseEvent) => {
+  return (event: T) => {
     console.log('Starting tempo change');
     event.preventDefault();
     event.stopPropagation();
@@ -32,7 +34,7 @@ export default function getRepeatedMouseDownHandler(initialInterval: number, rep
     return event.preventDefault();
   }
 
-  function getHandleMouseUp(action) {
+  function getHandleMouseUp(action: () => void) {
     return () => {
       document.removeEventListener('contextmenu', preventContextMenu);      
       action();

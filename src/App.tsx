@@ -1,10 +1,8 @@
-// @flow
-
 import React, { Component } from 'react';
 import './App.css';
 import Metronome from './metronome/Metronome'
 
-class App extends Component<{a: string}> {
+class App extends Component<{}> {
   render() {
     return (
       <div className="App">

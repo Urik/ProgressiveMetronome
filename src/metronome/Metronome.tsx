@@ -1,7 +1,7 @@
-// @flow
+
 
 import React, { Component } from 'react';
-import rolex from 'rolex';
+import Rolex from 'rolex';
 import { debounce, isNil } from 'lodash/fp';
 import TempoInput from './TempoInput/TempoInput';
 import './Metronome.css';
@@ -12,7 +12,7 @@ type State = { bpm: number, playingSound: boolean };
 
 type Props = { defaultBpm: number };
 class Metronome extends Component<Props, State> {
-  playingInterval: ?any = null;
+  playingInterval: any = null;
   
   constructor(props: Props) {
     super(props);
@@ -23,7 +23,7 @@ class Metronome extends Component<Props, State> {
       bpm: tempo,
       playingSound: false
     };
-    this.play = (debounce(50, this.play).bind(this): number => Promise<void>);
+    this.play = debounce(50, this.play).bind(this);
     
     document.addEventListener('keydown', this.toggleOnSpacePress);
   }
@@ -46,7 +46,7 @@ class Metronome extends Component<Props, State> {
       this.playingInterval.stop();
     }
     const interval = Math.round(60000 / bpm);
-    this.playingInterval = rolex(interval, 10000000000000000, () => {
+    this.playingInterval = Rolex(interval, 10000000000000000, () => {
       mainBeep.play();
     });
     this.playingInterval.start();

@@ -1,6 +1,6 @@
-// @flow
 
-import type { TimeSignature } from './TimeSignature';
+
+import { TimeSignature } from './TimeSignature';
 
 class MusicalBeat {
   timeSignature: TimeSignature;
