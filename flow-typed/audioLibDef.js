@@ -1,1 +1,0 @@
-declare function Audio(source?: string): HTMLAudioElement;
