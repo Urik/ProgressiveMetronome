@@ -65,7 +65,6 @@ export const SongsList: React.FC<SongsListProps> = ({
               <div className="song-name-parent full-width has-text-left" onClick={() => songSelected(song)}>
                 <div className={`song-name ${song === selectedSong ? 'selected-song' : ''}`}>
                   {song.name}
-
                 </div>
               </div>
               <button className="button is-danger" onClick={() => removeSong(song)}>X</button>
