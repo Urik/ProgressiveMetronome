@@ -1,0 +1,28 @@
+.song {
+  div {
+    display: inline;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.song-name-parent {
+  cursor: pointer;
+
+  .song-name {
+    display: block;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: left;
+
+    &.selected-song {
+      transform: scale(2) !important;
+    }
+  }
+
+  &:hover .song-name {
+    transform: translateX(10px);
+    transform: scale(1.2);
+  }
+}
