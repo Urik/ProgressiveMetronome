@@ -6,6 +6,12 @@
       "headers": {
         "cache-control": "no-store"
       }
+    }, {
+      "src": "/service-worker.js",
+      "dest": "/service-worker.js",
+      "headers": {
+        "cache-control": "no-store"
+      }
     }
   ]
 }
