@@ -38,6 +38,7 @@ class Metronome extends Component<Props, State> {
       songs: [],
       selectedSong: undefined
     };
+
     this.play = debounce(50, this.play).bind(this);
     this.barPlayer = new BarPlayer(createBar(this.state.subdivisions), this.state.bpm);
     document.addEventListener('keydown', this.toggleOnSpacePress);
@@ -96,8 +97,11 @@ class Metronome extends Component<Props, State> {
   };
 
   componentWillMount() {
-    const songs = localStorage.getItem('songs') || '[]';
-    this.setState({ songs: JSON.parse(songs) });
+    const songs = JSON.parse(localStorage.getItem('songs') || '[]');
+    this.setState({
+      songs,
+      selectedSong: songs[0],
+    });
   }
 
   componentWillUnmount() {

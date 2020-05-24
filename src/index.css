@@ -3,3 +3,11 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@font-face {
+  font-family: 'pacificoregular';
+  src: url('./assets/typefaces/pacifico-regular-webfont.woff2') format('woff2'),
+       url('./assets/typefaces/pacifico-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
