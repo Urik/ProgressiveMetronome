@@ -16,7 +16,7 @@ export default class TempoInput extends Component<Props> {
   handleInputChange = (e: SyntheticEvent<HTMLInputElement>) => {
     this.props.changeTempo(Number(e.currentTarget.value));
   };
-  
+
   render() {
     return (
       <div className="tempo-input">
@@ -25,8 +25,8 @@ export default class TempoInput extends Component<Props> {
           <input type="number" value={this.props.bpm} onChange={this.handleInputChange} />
         </div>
         <div className="tempo-controls">
-          <button className="carrot-flat-button no-select" onMouseDown={this.increaseHandler} onTouchStart={this.increaseHandler}>+</button>
-          <button className="carrot-flat-button no-select" onMouseDown={this.decreaseHandler} onTouchStart={this.decreaseHandler}>-</button>
+          <button className="carrot-flat-button no-select" onMouseDown={this.increaseHandler} onTouchStart={this.increaseHandler} onTouchEnd={e => e.preventDefault()}>+</button>
+          <button className="carrot-flat-button no-select" onMouseDown={this.decreaseHandler} onTouchStart={this.decreaseHandler} onTouchEnd={e => e.preventDefault()}>-</button>
         </div>
       </div>
     );
