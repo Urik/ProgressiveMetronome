@@ -138,7 +138,12 @@ class Metronome extends Component<Props, State> {
         <div className="tempo-input">
           <TempoInput bpm={this.state.bpm} changeTempo={this.changeTempo} />
         </div>
-        <button className="button is-success full-width tap-button" onClick={this.tapTempo}>
+        <button
+          className="button is-success full-width tap-button"
+          onMouseDown={this.tapTempo}
+          onTouchStart={this.tapTempo}
+          onTouchEnd={(e) => e.preventDefault()}
+        >
           Tap
         </button>
         <div>
