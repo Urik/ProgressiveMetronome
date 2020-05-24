@@ -146,7 +146,7 @@ class Metronome extends Component<Props, State> {
         >
           Tap
         </button>
-        <div>
+        <div className="hidden">
           <input type="number" value={this.state.subdivisions} onChange={this.changeSubdivisions}/>
         </div>
         <button className="button is-link is-light start-button full-width" onClick={this.togglePlay}>
