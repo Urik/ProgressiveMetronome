@@ -1,3 +1,7 @@
+html, body, #root {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,4 +14,9 @@ body {
        url('./assets/typefaces/pacifico-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }

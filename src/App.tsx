@@ -8,15 +8,17 @@ import { Footer } from './footer/footer';
 class App extends Component<{}> {
   render() {
     return (
-      <section className="section">
-        <div className="App container">
-          <div className="header">
-            <Header />
+      <>
+        <section className="section application">
+          <div className="App container">
+            <div className="header">
+              <Header />
+            </div>
+            <Metronome defaultBpm={100}/>
           </div>
-          <Metronome defaultBpm={100}/>
-          <Footer />
-        </div>
-      </section>
+        </section>
+        <Footer />
+      </>
     );
   }
 }
