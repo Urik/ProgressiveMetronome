@@ -96,12 +96,14 @@ class Metronome extends Component<Props, State> {
     }
   };
 
-  componentWillMount() {
+  async componentWillMount() {
     const songs = JSON.parse(localStorage.getItem('songs') || '[]');
-    this.setState({
+    await this.setState({
       songs,
-      selectedSong: songs[0],
     });
+    if (songs[0]) {
+      this.selectSong(songs[0]);
+    }
   }
 
   componentWillUnmount() {
@@ -113,7 +115,7 @@ class Metronome extends Component<Props, State> {
     this.setState({ songs: newSongList })
   }
 
-  songHasBeenSelected = async (song: Song): Promise<void> => {
+  selectSong = async (song: Song): Promise<void> => {
     await this.setState({ selectedSong: song });
     this.changeTempo(song.tempo);
   };
@@ -137,7 +139,7 @@ class Metronome extends Component<Props, State> {
             songs={this.state.songs}
             currentTempo={this.state.bpm}
             selectedSong={this.state.selectedSong}
-            songSelected={this.songHasBeenSelected.bind(this)}
+            songSelected={this.selectSong.bind(this)}
             songListHasBeenModified={this.songListModified.bind(this)}
           />
         </div>
