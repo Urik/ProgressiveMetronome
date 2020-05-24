@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import 'bulma/css/bulma.min.css';
-import './App.css';
+import ReactGA from 'react-ga';
+
 import Metronome from './metronome/Metronome'
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
+import 'bulma/css/bulma.min.css';
+import './App.css';
 
 class App extends Component<{}> {
+  componentWillMount() {
+    if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_GOOGLE_ANALYTICS) {
+      ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
+      ReactGA.pageview(window.location.pathname);
+    }
+  }
+
   render() {
     return (
       <>
