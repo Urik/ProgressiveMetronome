@@ -10,11 +10,16 @@ type Props = {
 };
 
 export default class TempoInput extends Component<Props> {
-  increaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.props.changeTempo(this.props.bpm + 1));
-  decreaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.props.changeTempo(this.props.bpm - 1));
+  increaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.changeTempo(this.props.bpm + 1));
+  decreaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.changeTempo(this.props.bpm - 1));
+
+  private changeTempo(tempo: number): void {
+    const newTempo = tempo < 1 ? 10 : tempo;
+    this.props.changeTempo(newTempo);
+  }
 
   handleInputChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    this.props.changeTempo(Number(e.currentTarget.value));
+    this.changeTempo(Number(e.currentTarget.value));
   };
 
   render() {
