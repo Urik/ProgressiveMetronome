@@ -1,6 +1,6 @@
 
 
-import React, { Component, SyntheticEvent, TouchEvent as ReactTouchEvent, createRef, RefObject } from 'react';
+import React, { Component, SyntheticEvent, TouchEvent as ReactTouchEvent } from 'react';
 import './TempoInput.css';
 import getRepeatedMouseDownHandler from '../../utils/getRepeatedMouseDownHandler';
 
@@ -10,20 +10,13 @@ type Props = {
 };
 
 export default class TempoInput extends Component<Props> {
-  increaseHandler = getRepeatedMouseDownHandler(500, 30, (e) => {
-    e.nativeEvent.stopImmediatePropagation();
-    this.props.changeTempo(this.props.bpm + 1);
-  });
-
-  decreaseHandler = getRepeatedMouseDownHandler(500, 30, (e) => {
-    e.nativeEvent.stopImmediatePropagation();
-    this.props.changeTempo(this.props.bpm - 1);
-  });
+  increaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.props.changeTempo(this.props.bpm + 1));
+  decreaseHandler = getRepeatedMouseDownHandler(500, 30, () => this.props.changeTempo(this.props.bpm - 1));
 
   handleInputChange = (e: SyntheticEvent<HTMLInputElement>) => {
     this.props.changeTempo(Number(e.currentTarget.value));
   };
-
+  
   render() {
     return (
       <div className="tempo-input">
