@@ -10,6 +10,7 @@ import { BarPlayer } from './BarPlayer';
 import { createBar } from '../music-beats/bar';
 import { Song } from './Song';
 import { SongsList } from './SongsList';
+import { TapCalculator } from './tap-calculator/tap-calculator';
 
 type State = {
   bpm: number,
@@ -21,8 +22,8 @@ type State = {
 
 type Props = { defaultBpm: number };
 class Metronome extends Component<Props, State> {
-  playingInterval: any = null;
-
+  private playingInterval: any = null;
+  private tempoCalculator = new TapCalculator();
   private barPlayer: BarPlayer;
 
   constructor(props: Props) {
@@ -38,6 +39,8 @@ class Metronome extends Component<Props, State> {
       songs: [],
       selectedSong: undefined
     };
+
+
 
     this.play = debounce(50, this.play).bind(this);
     this.barPlayer = new BarPlayer(createBar(this.state.subdivisions), this.state.bpm);
@@ -120,6 +123,14 @@ class Metronome extends Component<Props, State> {
     this.changeTempo(song.tempo);
   };
 
+  tapTempo = () => {
+    const tempo = this.tempoCalculator.tap();
+    if (tempo) {
+      this.changeTempo(tempo);
+      console.log(tempo);
+    }
+  };
+
   render() {
     const playButtonClass = this.state.playingSound ? 'fa-stop' : 'fa-play';
     return (
@@ -127,6 +138,9 @@ class Metronome extends Component<Props, State> {
         <div className="tempo-input">
           <TempoInput bpm={this.state.bpm} changeTempo={this.changeTempo} />
         </div>
+        <button className="button is-success full-width tap-button" onClick={this.tapTempo}>
+          Tap
+        </button>
         <div>
           <input type="number" value={this.state.subdivisions} onChange={this.changeSubdivisions}/>
         </div>
