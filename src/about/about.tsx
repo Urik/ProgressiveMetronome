@@ -6,7 +6,7 @@ export function About() {
   return (
     <section className="section about">
       <div className="guitar-wrapper">
-        <img className="guitar" src={guitar} alt=""/>
+        <img className="guitar" src={guitar} alt="guitar drawing"/>
       </div>
       <div className="text">
         <p>I'm Clickie, a free, no ads, mobile friendly metronome for casual use!</p>

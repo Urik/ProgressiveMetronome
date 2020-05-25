@@ -7,7 +7,7 @@ export function Header() {
   return (
     <>
       <div className="header">
-        <img className="logo" src={logo} alt=""/>
+        <img className="logo" src={logo} alt="metronome drawing"/>
         <span className="header-title">Clickie</span>
       </div>
     </>

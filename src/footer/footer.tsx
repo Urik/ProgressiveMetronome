@@ -14,7 +14,7 @@ export function Footer() {
             target="_blank"
             title="I'm on LinkedIn!"
           >
-            <img className="linkedin-logo" src={linkedIn} />
+            <img className="linkedin-logo" alt="linkedin logo" src={linkedIn} />
           </a>
         </p>
         <p>
