@@ -1,0 +1,28 @@
+.about {
+  display: flex;
+  align-items: center;
+  background-color: #ffcbcb;
+}
+
+.text {
+  min-width: 300px;
+
+  p:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  .github-link {
+    margin-top: 2px;
+    font-size: 2rem;
+  }
+}
+
+.guitar-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .guitar {
+    max-height: 300px;
+    height: auto;
+  }
+}

@@ -3,6 +3,7 @@ import ReactGA from 'react-ga';
 
 import Metronome from './metronome/Metronome'
 import { Header } from './header/header';
+import { About } from './about/about';
 import { Footer } from './footer/footer';
 import 'bulma/css/bulma.min.css';
 import './App.css';
@@ -26,6 +27,7 @@ class App extends Component<{}> {
             <Metronome defaultBpm={100}/>
           </div>
         </section>
+        <About />
         <Footer />
       </>
     );
