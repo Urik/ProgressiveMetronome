@@ -20,14 +20,16 @@ export const SongsList: React.FC<SongsListProps> = ({
 }) => {
   const [newSongName, setNewSongName] = useState('');
   function addSong(songName: string): void {
-    setNewSongName('');
-    const newSong = {
-      id: String(Math.random()),
-      name: songName,
-      tempo: currentTempo
-    };
-    songListHasBeenModified([...songs, newSong]);
-    songSelected(newSong);
+    if(songName.length!=0) {
+        setNewSongName('');
+        const newSong = {
+            id: String(Math.random()),
+            name: songName,
+            tempo: currentTempo
+        };
+        songListHasBeenModified([...songs, newSong]);
+        songSelected(newSong);
+    }
   }
 
   function removeSong(song: Song): void {
