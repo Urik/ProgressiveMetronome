@@ -9,7 +9,7 @@ export function About() {
         <img className="guitar" src={guitar} alt="guitar drawing"/>
       </div>
       <div className="text">
-        <p>I'm Clickie, a free, no ads, mobile friendly metronome for casual use!</p>
+        <h2>I'm Clickie, a free, no ads, mobile friendly metronome for casual use!</h2>
         <p>
           My creator is pretty scatterbrained and often forgets what tempo he was on when practicing guitar.
           That's why he created me, I let him remember where he was on each song!
