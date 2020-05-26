@@ -8,7 +8,7 @@ export function Header() {
     <>
       <div className="header">
         <img className="logo" src={logo} alt="metronome drawing"/>
-        <span className="header-title">Clickie</span>
+        <h1 className="header-title">Clickie</h1>
       </div>
     </>
   );
