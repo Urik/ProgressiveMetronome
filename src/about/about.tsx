@@ -14,7 +14,7 @@ export function About() {
           My creator is pretty scatterbrained and often forgets what tempo he was on when practicing guitar.
           That's why he created me, I let him remember where he was on each song!
         </p>
-        <a className="github-link" href="https://github.com/Urik/Clickie" target="_blank" title="Visit me on Github!">
+        <a className="github-link" rel="noopener noreferrer" href="https://github.com/Urik/Clickie" target="_blank" title="Visit me on Github!">
           <p>You can visit me on Github :D !</p>
         </a>
       </div>

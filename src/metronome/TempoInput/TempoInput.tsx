@@ -1,6 +1,6 @@
 
 
-import React, { Component, SyntheticEvent, TouchEvent as ReactTouchEvent } from 'react';
+import React, { Component, KeyboardEvent, SyntheticEvent } from 'react';
 import './TempoInput.css';
 import getRepeatedMouseDownHandler from '../../utils/getRepeatedMouseDownHandler';
 
@@ -18,6 +18,13 @@ export default class TempoInput extends Component<Props> {
     this.props.changeTempo(newTempo);
   }
 
+  handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === ' ') {
+      e.preventDefault();
+      return false;
+    }
+  }
+
   handleInputChange = (e: SyntheticEvent<HTMLInputElement>) => {
     this.changeTempo(Number(e.currentTarget.value));
   };
@@ -27,7 +34,7 @@ export default class TempoInput extends Component<Props> {
       <div className="tempo-input">
         <div className="bpm-input">
           <label>BPM</label>
-          <input type="number" value={this.props.bpm} onChange={this.handleInputChange} />
+          <input type="number" value={this.props.bpm} onKeyDown={this.handleKeyDown} onChange={this.handleInputChange} />
         </div>
         <div className="tempo-controls">
           <button className="carrot-flat-button no-select" onMouseDown={this.increaseHandler} onTouchStart={this.increaseHandler} onTouchEnd={e => e.preventDefault()}>+</button>

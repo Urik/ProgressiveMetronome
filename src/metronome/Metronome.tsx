@@ -89,12 +89,8 @@ class Metronome extends Component<Props, State> {
     this.barPlayer.setBar(createBar(newDivisions));
   };
 
-  private isEventComingFromInput(e: KeyboardEvent): boolean {
-    return e.target instanceof HTMLInputElement && e.target.tagName.toLowerCase() === 'input';
-  }
-
   toggleOnSpacePress = (e: KeyboardEvent) => {
-    if (e.keyCode === SPACE && !this.isEventComingFromInput(e)) {
+    if (e.keyCode === SPACE) {
       this.togglePlay();
     }
   };
