@@ -15,7 +15,7 @@
       "src": "/service-worker.js",
       "dest": "/service-worker.js",
       "headers": {
-        "cache-control": "no-store"
+        "cache-control": "max-age=0,no-cache,no-store,must-revalidate"
       }
     }
   ]
